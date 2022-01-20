@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 
 namespace HeliosBIM
 {
-    public class Commands : IExtensionApplication
+    public class FirstCommand : IExtensionApplication
     {
         #region InitAndTerm
 
@@ -53,13 +53,6 @@ namespace HeliosBIM
         /// This constructor is run once per document
         /// at the first call of a 'CommandMethod' method.
         /// </summary>
-        public Commands()
-        {
-            // private fields initialization (initial default values)
-            doc = AcAp.DocumentManager.MdiActiveDocument;
-            radius = 10.0;
-            layer = (string)AcAp.GetSystemVariable("clayer");
-        }
 
         /// <summary>
         /// Command to draw the circle.
@@ -124,7 +117,7 @@ namespace HeliosBIM
         /// Command to test NewtonJson
         /// </summary>
         [CommandMethod("CMD_CreateJSON")]
-        public void CreatJSON()
+        public void CreateJson()
         {
             var aPollo = new CAT("Apollo", 10, "2kg", 10000);
 
@@ -169,15 +162,15 @@ namespace HeliosBIM
         [CommandMethod("HeliosCommand")]
         public void HeliosCommand()
         {
-            Document doc = AcAp.DocumentManager.MdiActiveDocument;
-            Editor ed = doc.Editor;
-            Database db = doc.Database;
+            //Document doc = AcAp.DocumentManager.MdiActiveDocument;
+            //Editor ed = doc.Editor;
+            //Database db = doc.Database;
 
-            FirstCommandViewModel viewModel = new FirstCommandViewModel(doc);
+            //FirstCommandViewModel viewModel = new FirstCommandViewModel(doc);
 
-            FirstCommandWindow window = new FirstCommandWindow(viewModel);
+            //FirstCommandWindow window = new FirstCommandWindow(viewModel);
 
-            window.ShowDialog();
+            //window.ShowDialog();
 
         }
     }

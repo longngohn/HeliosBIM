@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeliosBIM", "HeliosBIM\HeliosBIM.csproj", "{8A3295DE-0321-4B69-84B4-4F7D14747348}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installed", "Installed\Installed.vdproj", "{AA87F2EB-2E31-468B-A073-5AD25E219282}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +17,17 @@ Global
 		{8A3295DE-0321-4B69-84B4-4F7D14747348}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A3295DE-0321-4B69-84B4-4F7D14747348}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A3295DE-0321-4B69-84B4-4F7D14747348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA87F2EB-2E31-468B-A073-5AD25E219282}.Debug|Any CPU.ActiveCfg = Debug
+		{AA87F2EB-2E31-468B-A073-5AD25E219282}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B14682E-2648-4011-A8DD-236B1F469937}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal
