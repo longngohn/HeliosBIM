@@ -54,6 +54,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -69,21 +70,34 @@
     <Compile Include="First Project\CAT.cs" />
     <Compile Include="First Project\FirstCommandViewModel.cs" />
     <Compile Include="First Project\FirstCommand.cs" />
-    <Compile Include="First Project\FirstCommandWindow.xaml.cs">
-      <DependentUpon>FirstCommandWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="HeliosLibrary\ViewModelBase.cs" />
+    <Compile Include="Modal Dialog\SelectionUtils.cs" />
+    <Compile Include="Modal Dialog\TextUtils.cs" />
+    <Compile Include="Modal Dialog\Commands.cs" />
+    <Compile Include="Modal Dialog\ModalDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal Dialog\ModalDialog.Designer.cs">
+      <DependentUpon>ModalDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal Dialog\Zoning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal Dialog\Zoning.Designer.cs">
+      <DependentUpon>Zoning.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="First Project\FirstCommandWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <EmbeddedResource Include="Modal Dialog\ModalDialog.resx">
+      <DependentUpon>ModalDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal Dialog\Zoning.resx">
+      <DependentUpon>Zoning.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
