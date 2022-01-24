@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationPackage SchemaVersion="1.0" AppVersion="1.0"
+    ProductCode="{8E79F4DA-D915-42B0-BF11-8D5EC728D0A8}"
+    Name="wcadplugin"
+>
+ 
+  <CompanyDetails
+    Name="ABC Indoor CAD, Inc."
+    Email="support@abcindoorcad.com"
+  />
+ 
+  <Components>
+
+  <ComponentEntry
+      ModuleName="./Contents/HeliosBIM.dll"
+    />
+  <ComponentEntry
+      ModuleName="./HeliosBim.cuix"
+    />
+  </Components>
+</ApplicationPackage>

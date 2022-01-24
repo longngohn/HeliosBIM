@@ -80,6 +80,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="HeliosBim.bundle\Contents\Resources\PHC-ISO.dwg" />
+    <None Include="HeliosBim.bundle\HeliosBim.cuix" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -87,5 +89,9 @@
       <DependentUpon>Zoning.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="HeliosBim.bundle\PackageContents.xml" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
