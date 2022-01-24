@@ -32,29 +32,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="accoremgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ModPlus.AutoCAD.API.2020.1.0.0\lib\accoremgd.dll</HintPath>
+    <Reference Include="AcCoreMgd">
+      <HintPath>..\..\..\..\..\..\..\Autodesk\ObjectARX_for_AutoCAD_2020_Win_64_bit\inc\AcCoreMgd.dll</HintPath>
     </Reference>
     <Reference Include="AcCui, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ModPlus.AutoCAD.API.2020.1.0.0\lib\AcCui.dll</HintPath>
+      <HintPath>..\..\..\..\..\Google Drive\08.Phan mem\WCAD Plugin\WCAD Plugin\bin\Debug\AcCui.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="acdbmgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ModPlus.AutoCAD.API.2020.1.0.0\lib\acdbmgd.dll</HintPath>
+    <Reference Include="AcDbMgd">
+      <HintPath>..\..\..\..\..\..\..\Autodesk\ObjectARX_for_AutoCAD_2020_Win_64_bit\inc\AcDbMgd.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="acmgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ModPlus.AutoCAD.API.2020.1.0.0\lib\acmgd.dll</HintPath>
-    </Reference>
-    <Reference Include="AdWindows, Version=2018.11.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ModPlus.AutoCAD.API.2020.1.0.0\lib\AdWindows.dll</HintPath>
-    </Reference>
-    <Reference Include="JetBrains.Annotations, Version=2020.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
-      <HintPath>..\packages\JetBrains.Annotations.2020.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.3\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    <Reference Include="AcMgd">
+      <HintPath>..\..\..\..\..\..\..\Autodesk\ObjectARX_for_AutoCAD_2020_Win_64_bit\inc\AcMgd.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\Google Drive\08.Phan mem\WCAD Plugin\WCAD Plugin\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
