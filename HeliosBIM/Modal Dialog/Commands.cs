@@ -866,41 +866,8 @@ namespace HeliosBIM.ModalDialogTest
                 {
                     blkRecId = acBlkTbl["cote cao do"];
                 }
-
-                    //if (!acBlkTbl.Has("CircleBlock"))
-                    //{
-                    //    using (BlockTableRecord acBlkTblRec = new BlockTableRecord())
-                    //    {
-                    //        acBlkTblRec.Name = "CircleBlock";
-
-                    //        // Set the insertion point for the block
-                    //        acBlkTblRec.Origin = new Point3d(0, 0, 0);
-
-                    //        // Add a circle to the block
-                    //        using (Circle acCirc = new Circle())
-                    //        {
-                    //            acCirc.Center = new Point3d(0, 0, 0);
-                    //            acCirc.Radius = 2;
-
-                    //            acBlkTblRec.AppendEntity(acCirc);
-
-                    //            acTrans.GetObject(acCurDb.BlockTableId, OpenMode.ForWrite);
-                    //            acBlkTbl.Add(acBlkTblRec);
-                    //            acTrans.AddNewlyCreatedDBObject(acBlkTblRec, true);
-                    //        }
-
-                    //        blkRecId = acBlkTblRec.Id;
-                    //    }
-                    //}
-                    //else
-                    //{
-
-                    //}
-
-
-
-                    // Insert the block into the current space
-                    if (blkRecId != ObjectId.Null)
+                
+                if (blkRecId != ObjectId.Null)
                 {
 
                     //START TEST-----------------------------------
@@ -944,7 +911,7 @@ namespace HeliosBIM.ModalDialogTest
 
                                     // Change the attribute definition to be displayed as backwards
                                     acAtt.UpgradeOpen();
-                                    acAtt.IsMirroredInX = true;
+                                    
                                 }
                             }
                         }
