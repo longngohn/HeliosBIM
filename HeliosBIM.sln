@@ -5,6 +5,19 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeliosBIM", "HeliosBIM\HeliosBIM.csproj", "{8A3295DE-0321-4B69-84B4-4F7D14747348}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HeliosBim.bundle", "HeliosBim.bundle", "{1FF1B0F8-BDA4-4A5B-A041-DECCABDC46DE}"
+	ProjectSection(SolutionItems) = preProject
+		H:\My Drive\08.Phan mem\heliosbim.bundle\HeliosBim.cuix = H:\My Drive\08.Phan mem\heliosbim.bundle\HeliosBim.cuix
+		H:\My Drive\08.Phan mem\heliosbim.bundle\PackageContents.xml = H:\My Drive\08.Phan mem\heliosbim.bundle\PackageContents.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contents", "Contents", "{327B5ADD-3A93-46EA-8798-B77992B1181C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{AC36E26D-E005-47A9-9410-FC429A5FAFCC}"
+	ProjectSection(SolutionItems) = preProject
+		H:\My Drive\08.Phan mem\heliosbim.bundle\Contents\Resources\PHC-ISO.dwg = H:\My Drive\08.Phan mem\heliosbim.bundle\Contents\Resources\PHC-ISO.dwg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +31,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{327B5ADD-3A93-46EA-8798-B77992B1181C} = {1FF1B0F8-BDA4-4A5B-A041-DECCABDC46DE}
+		{AC36E26D-E005-47A9-9410-FC429A5FAFCC} = {327B5ADD-3A93-46EA-8798-B77992B1181C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B14682E-2648-4011-A8DD-236B1F469937}

@@ -71,12 +71,6 @@
     <Compile Include="Modal Dialog\SelectionUtils.cs" />
     <Compile Include="Modal Dialog\TextUtils.cs" />
     <Compile Include="Modal Dialog\Commands.cs" />
-    <Compile Include="Modal Dialog\ModalDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modal Dialog\ModalDialog.Designer.cs">
-      <DependentUpon>ModalDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modal Dialog\Zoning.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +83,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Modal Dialog\ModalDialog.resx">
-      <DependentUpon>ModalDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Modal Dialog\Zoning.resx">
       <DependentUpon>Zoning.cs</DependentUpon>
     </EmbeddedResource>

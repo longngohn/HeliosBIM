@@ -39,34 +39,7 @@ namespace HeliosBIM.ModalDialogTest
             ColorOfWcadObject=252;
         }
 
-        /// <summary>
-        /// Command to show the dialog box
-        /// </summary>
-        [CommandMethod("CMD_MODAL")]
-        public void ModalDialogCmd()
-        {
-            // creation of an instance of ModalDialog
-            // with the document data (layers and default values)
-            var layers = GetLayerNames(doc.Database);
-            if (!layers.Contains(layer))
-            {
-                layer = (string)AcAp.GetSystemVariable("clayer");
-            }
-            using (var dialog = new ModalDialog(layers, layer, radius))
-            {
-                // shows the dialog box in modal mode
-                // and acts according to the DialogResult value
-                var dlgResult = AcAp.ShowModalDialog(dialog);
-                if (dlgResult == System.Windows.Forms.DialogResult.OK)
-                {
-                    // fields update
-                    layer = dialog.Layer;
-                    radius = dialog.Radius;
-                    // circle drawing
-                    DrawCircle(radius, layer);
-                }
-            }
-        }
+     
 
         /// <summary>
         /// Draws a circle.
