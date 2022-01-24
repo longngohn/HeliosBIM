@@ -9,12 +9,11 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Runtime;
 
+
 namespace HeliosBIM.ModalDialogTest
 {
     public class SelectionUtils
     {
-
-
         public static SelectionSet FilterForSingleEntity(Editor ed, string graphicObject)
         {
             // Get the current document editor
@@ -44,8 +43,5 @@ namespace HeliosBIM.ModalDialogTest
             }
             return acSSet;
         }
-
-
-
     }
 }

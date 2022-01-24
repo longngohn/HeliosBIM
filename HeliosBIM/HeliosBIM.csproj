@@ -73,9 +73,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="First Project\CAT.cs" />
-    <Compile Include="First Project\FirstCommandViewModel.cs" />
-    <Compile Include="First Project\FirstCommand.cs" />
     <Compile Include="HeliosLibrary\ViewModelBase.cs" />
     <Compile Include="Modal Dialog\SelectionUtils.cs" />
     <Compile Include="Modal Dialog\TextUtils.cs" />
