@@ -21,12 +21,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_206B16A0C68B45AAA5FE91117B0755EE"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4842F09A14EC4992818BBDBC158C5156"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -45,7 +39,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E9691012B5B62A8B8FA31BA9CD0259F4"
+        "MsmKey" = "8:_F9B3613C3EF93CDFBE34E003D8D02887"
         "OwnerKey" = "8:_4842F09A14EC4992818BBDBC158C5156"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -58,7 +52,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E9691012B5B62A8B8FA31BA9CD0259F4"
+        "OwnerKey" = "8:_F9B3613C3EF93CDFBE34E003D8D02887"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -85,6 +79,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -101,6 +103,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -136,26 +146,6 @@
             "TargetName" = "8:PHC-ISO.dwg"
             "Tag" = "8:"
             "Folder" = "8:_4758A89D2D48483FAE94DFD1C81C53C6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_206B16A0C68B45AAA5FE91117B0755EE"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Huong dan cai dat HeliosBim.txt"
-            "TargetName" = "8:Huong dan cai dat HeliosBim.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_2E1108547F6A46F3B0ACC40C1A1FAF31"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -241,14 +231,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E9691012B5B62A8B8FA31BA9CD0259F4"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F9B3613C3EF93CDFBE34E003D8D02887"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:accoremgd, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E9691012B5B62A8B8FA31BA9CD0259F4"
+                    "_F9B3613C3EF93CDFBE34E003D8D02887"
                     {
                     "Name" = "8:AcCoreMgd.dll"
                     "Attributes" = "3:512"

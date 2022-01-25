@@ -35,10 +35,6 @@
     <Reference Include="AcCoreMgd">
       <HintPath>..\..\..\..\..\..\..\Autodesk\ObjectARX_for_AutoCAD_2020_Win_64_bit\inc\AcCoreMgd.dll</HintPath>
     </Reference>
-    <Reference Include="AcCui, Version=23.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\Google Drive\08.Phan mem\WCAD Plugin\WCAD Plugin\bin\Debug\AcCui.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="AcDbMgd">
       <HintPath>..\..\..\..\..\..\..\Autodesk\ObjectARX_for_AutoCAD_2020_Win_64_bit\inc\AcDbMgd.dll</HintPath>
       <Private>False</Private>
@@ -48,7 +44,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\Google Drive\08.Phan mem\WCAD Plugin\WCAD Plugin\bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
