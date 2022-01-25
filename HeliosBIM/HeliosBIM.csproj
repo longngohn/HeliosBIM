@@ -64,6 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HeliosLibrary\ViewModelBase.cs" />
+    <Compile Include="Modal Dialog\PickCote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal Dialog\PickCote.Designer.cs">
+      <DependentUpon>PickCote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modal Dialog\SelectionUtils.cs" />
     <Compile Include="Modal Dialog\TextUtils.cs" />
     <Compile Include="Modal Dialog\Commands.cs" />
@@ -81,6 +87,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Modal Dialog\PickCote.resx">
+      <DependentUpon>PickCote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modal Dialog\Zoning.resx">
       <DependentUpon>Zoning.cs</DependentUpon>
     </EmbeddedResource>

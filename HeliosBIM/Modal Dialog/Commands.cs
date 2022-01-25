@@ -90,6 +90,7 @@ namespace HeliosBIM.ModalDialogTest
         }
 
         [CommandMethod("Zoning")]
+        
         public void ZoningCmd()
         {
             // creation of an instance of ModalDialog
@@ -605,7 +606,6 @@ namespace HeliosBIM.ModalDialogTest
 
         }
 
-
         private void ChangeNestedEntitiesToColor(BlockReference btrId, short colorIndex)
 
         {
@@ -804,7 +804,7 @@ namespace HeliosBIM.ModalDialogTest
 
         [CommandMethod("CMC")]
 
-        public void TaoCaoDo()
+        public void TaoCaoDo(string xlayer, int xscale)
 
         {
             doc = AcAp.DocumentManager.MdiActiveDocument;
@@ -832,19 +832,18 @@ namespace HeliosBIM.ModalDialogTest
             {
                 ed.WriteMessage(result);
 
-                InsertingABlock("+" + result, ptEnd);
+                InsertingABlock("+" + result, ptEnd, xscale);
             }
             else
             {
                 ed.WriteMessage(result);
 
-                InsertingABlock(result, ptEnd);
+                InsertingABlock(result, ptEnd, xscale);
             }
 
         }
 
-
-        public void InsertingABlock(string CoteCaoDo, Point3d insertPoint)
+        public void InsertingABlock(string CoteCaoDo, Point3d insertPoint, int xscale)
         {
             // Get the current database and start a transaction
             Database acCurDb;
@@ -869,8 +868,6 @@ namespace HeliosBIM.ModalDialogTest
                 
                 if (blkRecId != ObjectId.Null)
                 {
-
-                    //START TEST-----------------------------------
 
                     BlockTableRecord acBlkTblRec;
                     acBlkTblRec = acTrans.GetObject(blkRecId, OpenMode.ForRead) as BlockTableRecord;
@@ -917,20 +914,7 @@ namespace HeliosBIM.ModalDialogTest
                         }
 
                     }
-                    //END TEST-----------------------------------
 
-
-                    //using (BlockReference acBlkRef = new BlockReference(new Point3d(0, 0, 0), blkRecId))
-                    //{
-
-                    //    BlockTableRecord acCurSpaceBlkTblRec;
-                    //    acCurSpaceBlkTblRec = acTrans.GetObject(acCurDb.CurrentSpaceId, OpenMode.ForWrite) as BlockTableRecord;
-
-                    //    acCurSpaceBlkTblRec.AppendEntity(acBlkRef);
-                    //    acTrans.AddNewlyCreatedDBObject(acBlkRef, true);
-
-
-                    //}
                 }
 
 
@@ -942,7 +926,6 @@ namespace HeliosBIM.ModalDialogTest
                 // Dispose of the transaction
             }
         }
-
 
         public void ImportBlocks()
 
