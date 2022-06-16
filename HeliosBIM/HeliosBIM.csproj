@@ -64,6 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HeliosLibrary\ViewModelBase.cs" />
+    <Compile Include="Modal Dialog XAML\ModalWpfDialog.xaml.cs">
+      <DependentUpon>ModalWpfDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modal Dialog\PickCote.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +100,11 @@
   <ItemGroup>
     <Content Include="HeliosBim.bundle\PackageContents.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Modal Dialog XAML\ModalWpfDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
