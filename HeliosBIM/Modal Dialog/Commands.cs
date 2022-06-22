@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Runtime;
-
+using HeliosBIM.Modal_Dialog_XAML;
 using AcAp = Autodesk.AutoCAD.ApplicationServices.Application;
 
 [assembly: CommandClass(typeof(HeliosBIM.ModalDialogTest.Commands))]
@@ -17,6 +18,8 @@ namespace HeliosBIM.ModalDialogTest
     {
         // instance fields
         Document doc;  // active document
+        Database db;  // active database
+        Editor ed; // 
         double radius; // radius default value
         string layer;  // layer default value
         int textHeight; 
@@ -32,6 +35,8 @@ namespace HeliosBIM.ModalDialogTest
         {
             // private fields initialization (initial default values)
             doc = AcAp.DocumentManager.MdiActiveDocument;
+            db = doc.Database;
+            ed = doc.Editor;
             layer = (string)AcAp.GetSystemVariable("clayer");
             radius = 100.0;
             textHeight = 3;
@@ -39,35 +44,6 @@ namespace HeliosBIM.ModalDialogTest
             ColorOfWcadObject=252;
         }
 
-     
-
-        /// <summary>
-        /// Draws a circle.
-        /// </summary>
-        /// <param name="radius">Circle radius.</param>
-        /// <param name="layer">Circle center.</param>
-        private void DrawCircle(double radius, string layer)
-        {
-            var db = doc.Database;
-            var ed = doc.Editor;
-            var ppr = ed.GetPoint("\nSpecify the center: ");
-            if (ppr.Status == PromptStatus.OK)
-            {
-                using (var tr = db.TransactionManager.StartTransaction())
-                {
-                    var curSpace =
-                        (BlockTableRecord)tr.GetObject(db.CurrentSpaceId, OpenMode.ForWrite);
-                    using (var circle = new Circle(ppr.Value, Vector3d.ZAxis, radius))
-                    {
-                        circle.TransformBy(ed.CurrentUserCoordinateSystem);
-                        circle.Layer = layer;
-                        curSpace.AppendEntity(circle);
-                        tr.AddNewlyCreatedDBObject(circle, true);
-                    }
-                    tr.Commit();
-                }
-            }
-        }
 
         /// <summary>
         /// Gets the layer list.
@@ -1054,6 +1030,65 @@ namespace HeliosBIM.ModalDialogTest
 
         }
 
+
+        /// <summary>
+        /// Command to show the dialog box
+        /// </summary>
+        [CommandMethod("CMD_MODAL_WPF")]
+        public void ModalWpfDialogCmd()
+        {
+            var layers = GetLayerNames();
+            if (!layers.Contains(layer))
+            {
+                layer = (string)AcAp.GetSystemVariable("clayer");
+            }
+
+            // shows the dialog box
+            var dialog = new ModalWpfDialog(layers, layer, radius);
+            var result = AcAp.ShowModalWindow(dialog);
+            if (result.Value)
+            {
+                // fields update
+                layer = dialog.Layer;
+                radius = dialog.Radius;
+
+                // circle drawing
+                var ppr = ed.GetPoint("\nSpecify the center: ");
+                if (ppr.Status == PromptStatus.OK)
+                {
+                    // drawing the circlr in current space
+                    using (var tr = db.TransactionManager.StartTransaction())
+                    {
+                        var curSpace =
+                            (BlockTableRecord)tr.GetObject(db.CurrentSpaceId, OpenMode.ForWrite);
+                        using (var circle = new Circle(ppr.Value, Vector3d.ZAxis, radius))
+                        {
+                            circle.TransformBy(ed.CurrentUserCoordinateSystem);
+                            circle.Layer = layer;
+                            curSpace.AppendEntity(circle);
+                            tr.AddNewlyCreatedDBObject(circle, true);
+                        }
+                        tr.Commit();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the layer list.
+        /// </summary>
+        /// <param name="db">Database instance this method applies to.</param>
+        /// <returns>Layer names list.</returns>
+        private List<string> GetLayerNames()
+        {
+            using (var tr = db.TransactionManager.StartOpenCloseTransaction())
+            {
+                return ((LayerTable)tr.GetObject(db.LayerTableId, OpenMode.ForRead))
+                    .Cast<ObjectId>()
+                    .Select(id => ((LayerTableRecord)tr.GetObject(id, OpenMode.ForRead)).Name)
+                    .ToList();
+            }
+        }
         #endregion
     }
 }
