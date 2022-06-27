@@ -83,7 +83,6 @@ namespace HeliosBIM.ModalDialogTest
                     acMText.Width = 4;
                     acMText.Contents = "This is a text string for the MText object.";
                     acMText.Attachment = AttachmentPoint.BottomCenter;
-
                     acBlkTblRec.AppendEntity(acMText);
                     acTrans.AddNewlyCreatedDBObject(acMText, true);
                 }
