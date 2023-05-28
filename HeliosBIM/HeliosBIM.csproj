@@ -86,6 +86,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Bundle\AddinManager.Bundle\AddinManager.cuix" />
     <None Include="HeliosBim.bundle\Contents\Resources\PHC-ISO.dwg" />
     <None Include="HeliosBim.bundle\HeliosBim.cuix" />
     <None Include="packages.config" />
@@ -99,6 +100,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bundle\AddinManager.Bundle\Contents\AcadAddinManager.dll" />
+    <Content Include="Bundle\AddinManager.Bundle\Contents\AcadAddinManager.pdb" />
+    <Content Include="Bundle\AddinManager.Bundle\PackageContents.xml" />
+    <Content Include="Bundle\SnoopAutoCADCSharp.bundle\PackageContents.xml" />
+    <Content Include="Bundle\SnoopAutoCADCSharp.bundle\SnoopAutoCADCSharp.dll" />
     <Content Include="HeliosBim.bundle\PackageContents.xml" />
   </ItemGroup>
   <ItemGroup>
