@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HeliosBIM.ModalDialogTest
@@ -17,10 +11,10 @@ namespace HeliosBIM.ModalDialogTest
             InitializeComponent();
         }
 
-      
-      /// <summary>
-      /// Gets text height
-      /// </summary>
+
+        /// <summary>
+        /// Gets text height
+        /// </summary>
         public int TextHeight => int.Parse(txtHeight.Text);
         /// <summary>
         /// Gets scale of text
@@ -39,7 +33,7 @@ namespace HeliosBIM.ModalDialogTest
         /// <param name="clayer"></param>
         /// <param name="textHeight"></param>
         /// <param name="scale"></param>
-        public Zoning(List<string> layers, string clayer,int textHeight, int scale)
+        public Zoning(List<string> layers, string clayer, int textHeight, int scale)
         {
             InitializeComponent();
 
@@ -52,9 +46,9 @@ namespace HeliosBIM.ModalDialogTest
             cbxLayer.SelectedItem = clayer;
 
             // radius default value
-             txtHeight.Text = textHeight.ToString();
-             txtScale.Text = scale.ToString();
-             
+            txtHeight.Text = textHeight.ToString();
+            txtScale.Text = scale.ToString();
+
         }
         private void button1_Click(object sender, EventArgs e)
         {

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.AutoCAD.ApplicationServices;
+﻿using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
-using Autodesk.AutoCAD.Runtime;
 
 namespace HeliosBIM.ModalDialogTest
 {
@@ -19,7 +13,7 @@ namespace HeliosBIM.ModalDialogTest
         /// <param name="size"></param>
         /// <param name="content"></param>
         /// <param name="insertPoint3d"></param>
-        public static void CreateTextWithScale(Document doc,int scale, int sizePage, string clayer, string content, Point3d insertPoint3d)
+        public static void CreateTextWithScale(Document doc, int scale, int sizePage, string clayer, string content, Point3d insertPoint3d)
         {
             // Get the current document and database
             Document acDoc = doc;

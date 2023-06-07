@@ -1,11 +1,7 @@
-﻿using System;
+﻿using Autodesk.AutoCAD.EditorInput;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Autodesk.AutoCAD.EditorInput;
 using AcAp = Autodesk.AutoCAD.ApplicationServices.Application;
 
 namespace HeliosBIM.Modal_Dialog_XAML
@@ -50,7 +46,7 @@ namespace HeliosBIM.Modal_Dialog_XAML
             /// </summary>
             /// <param name="sender">Event source.</param>
             /// <param name="e">Event data.</param>
-            
+
         }
 
         private void btnRadius_Click(object sender, RoutedEventArgs e)

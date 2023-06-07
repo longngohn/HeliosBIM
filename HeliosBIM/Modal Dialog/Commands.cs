@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using Autodesk.AutoCAD.ApplicationServices;
+﻿using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Runtime;
 using HeliosBIM.Modal_Dialog_XAML;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using AcAp = Autodesk.AutoCAD.ApplicationServices.Application;
 
 [assembly: CommandClass(typeof(HeliosBIM.ModalDialogTest.Commands))]
@@ -22,7 +22,7 @@ namespace HeliosBIM.ModalDialogTest
         Editor ed; // 
         double radius; // radius default value
         string layer;  // layer default value
-        int textHeight; 
+        int textHeight;
         int scale;
         int ColorOfWcadObject;
 
@@ -41,7 +41,7 @@ namespace HeliosBIM.ModalDialogTest
             radius = 100.0;
             textHeight = 3;
             scale = 100;
-            ColorOfWcadObject=252;
+            ColorOfWcadObject = 252;
         }
 
 
@@ -66,7 +66,7 @@ namespace HeliosBIM.ModalDialogTest
         }
 
         [CommandMethod("Zoning")]
-        
+
         public void ZoningCmd()
         {
             // creation of an instance of ModalDialog
@@ -76,7 +76,7 @@ namespace HeliosBIM.ModalDialogTest
             {
                 layer = (string)AcAp.GetSystemVariable("clayer");
             }
-            using (var dialog = new Zoning(layers, layer,textHeight,scale))
+            using (var dialog = new Zoning(layers, layer, textHeight, scale))
             {
                 // shows the dialog box in modal mode
                 // and acts according to the DialogResult value
@@ -123,7 +123,7 @@ namespace HeliosBIM.ModalDialogTest
 
                             //Get some information
                             double area = Math.Round(hatch.Area / 1000000, 0);
- 
+
                             //Create text for zoning
                             TextUtils.CreateTextWithScale(doc,
                                 xscale,
@@ -509,7 +509,7 @@ namespace HeliosBIM.ModalDialogTest
             }
             catch (Autodesk.AutoCAD.Runtime.Exception ex)
             {
-                //editor.WriteMessage(ex.ToString());
+                editor.WriteMessage(ex.ToString());
             }
         }
 
@@ -831,7 +831,7 @@ namespace HeliosBIM.ModalDialogTest
                 acBlkTbl = acTrans.GetObject(acCurDb.BlockTableId, OpenMode.ForRead) as BlockTable;
 
                 ObjectId blkRecId = ObjectId.Null;
-               
+
                 if (!acBlkTbl.Has("cote cao do"))
                 {
                     ImportBlocks();
@@ -841,7 +841,7 @@ namespace HeliosBIM.ModalDialogTest
                 {
                     blkRecId = acBlkTbl["cote cao do"];
                 }
-                
+
                 if (blkRecId != ObjectId.Null)
                 {
 
@@ -884,7 +884,7 @@ namespace HeliosBIM.ModalDialogTest
 
                                     // Change the attribute definition to be displayed as backwards
                                     acAtt.UpgradeOpen();
-                                    
+
                                 }
                             }
                         }
@@ -1030,6 +1030,129 @@ namespace HeliosBIM.ModalDialogTest
 
         }
 
+
+        //TESTT
+
+
+
+        [CommandMethod("DSD")]
+        public static void DrawSignOfDoor()
+        {
+
+            // get the editor object so we can carry out some input 
+            Editor ed = AcAp.DocumentManager.MdiActiveDocument.Editor;
+            Database db = ed.Document.Database;
+            // first decide what type of entity we want to create 
+           
+            PromptPointOptions pPtOpts = new PromptPointOptions("");
+            PromptPointResult pPtRes;
+            // Prompt for the start point
+
+            int DoorWidth = 180;
+            int input;
+            do
+            {
+                input = 1;
+                pPtOpts.Message = "\nPick first point: ";
+                pPtRes = ed.GetPoint(pPtOpts);
+                Point3d ptStart = pPtRes.Value;
+                pPtOpts.UseBasePoint = true;
+                pPtOpts.BasePoint = ptStart;
+                if (pPtRes.Status == PromptStatus.Cancel) return;
+                // Prompt for the start point
+                pPtOpts.Message = "\nPick second point: ";
+                pPtRes = ed.GetPoint(pPtOpts);
+                Point3d ptEnd = pPtRes.Value;
+                if (pPtRes.Status == PromptStatus.Cancel) return;
+                using (Transaction tr = db.TransactionManager.StartTransaction())
+                {
+                    BlockTable acBlkTbl;
+                    BlockTableRecord btr;
+                    // Open Model space for write
+                    acBlkTbl = tr.GetObject(db.BlockTableId, OpenMode.ForRead) as BlockTable;
+                    btr = tr.GetObject(acBlkTbl[BlockTableRecord.ModelSpace], OpenMode.ForWrite) as BlockTableRecord;
+                if (ptStart.Y == ptEnd.Y)
+                            {
+                        using (Polyline acPoly = new Polyline())
+                        {
+                            acPoly.AddVertexAt(0, new Point2d(ptStart.X, ptStart.Y), 0, 0, 0);
+                            acPoly.AddVertexAt(1, new Point2d(ptEnd.X, ptEnd.Y), 0, 0, 0);
+                            acPoly.AddVertexAt(2, new Point2d(ptEnd.X, ptEnd.Y - DoorWidth), 0, 0, 0);
+                            acPoly.AddVertexAt(3, new Point2d(ptStart.X, ptStart.Y - DoorWidth), 0, 0, 0);
+                            acPoly.AddVertexAt(4, new Point2d(ptStart.X, ptStart.Y), 0, 0, 0);
+                            acPoly.ColorIndex = 8;
+                            // Add the new object to the block table record and the transaction
+                            btr.AppendEntity(acPoly);
+
+                            tr.AddNewlyCreatedDBObject(acPoly, true);
+                            ed.WriteMessage(acPoly.ObjectId.ToString());
+                        }
+
+                        using (Line acLine = new Line(new Point3d(ptStart.X, ptStart.Y, 0),
+                                                      new Point3d(ptEnd.X, ptStart.Y - DoorWidth, 0)))
+                        {
+
+                            // Add the new object to the block table record and the transaction
+                            btr.AppendEntity(acLine);
+                            tr.AddNewlyCreatedDBObject(acLine, true);
+                            acLine.ColorIndex = 8;
+                        }
+
+                        using (Line acLine = new Line(new Point3d(ptStart.X, ptStart.Y - DoorWidth, 0),
+                                                      new Point3d(ptEnd.X, ptStart.Y, 0)))
+                        {
+
+                            // Add the new object to the block table record and the transaction
+                            btr.AppendEntity(acLine);
+                            tr.AddNewlyCreatedDBObject(acLine, true);
+                            acLine.ColorIndex = 8;
+                        }
+
+                    }
+                else
+                    {
+                        using (Polyline acPoly = new Polyline())
+                        {
+                            acPoly.AddVertexAt(0, new Point2d(ptStart.X, ptStart.Y), 0, 0, 0);
+                            acPoly.AddVertexAt(1, new Point2d(ptStart.X + DoorWidth, ptStart.Y), 0, 0, 0);
+                            acPoly.AddVertexAt(2, new Point2d(ptEnd.X + DoorWidth, ptEnd.Y), 0, 0, 0);
+                            acPoly.AddVertexAt(3, new Point2d(ptEnd.X, ptEnd.Y), 0, 0, 0);
+                            acPoly.AddVertexAt(4, new Point2d(ptStart.X, ptStart.Y), 0, 0, 0);
+                            acPoly.ColorIndex = 8;
+                            // Add the new object to the block table record and the transaction
+                            btr.AppendEntity(acPoly);
+
+                            tr.AddNewlyCreatedDBObject(acPoly, true);
+                            ed.WriteMessage(acPoly.ObjectId.ToString());
+                        }
+
+                        using (Line acLine = new Line(new Point3d(ptStart.X, ptStart.Y, 0),
+                                                      new Point3d(ptEnd.X + DoorWidth, ptEnd.Y, 0)))
+                        {
+
+                            // Add the new object to the block table record and the transaction
+                            btr.AppendEntity(acLine);
+                            tr.AddNewlyCreatedDBObject(acLine, true);
+                            acLine.ColorIndex = 8;
+                        }
+
+                        using (Line acLine = new Line(new Point3d(ptEnd.X, ptEnd.Y, 0),
+                                                      new Point3d(ptStart.X + DoorWidth, ptStart.Y, 0)))
+                        {
+
+                            // Add the new object to the block table record and the transaction
+                            btr.AppendEntity(acLine);
+                            tr.AddNewlyCreatedDBObject(acLine, true);
+                            acLine.ColorIndex = 8;
+                        }
+                    }
+                    pPtOpts.UseBasePoint = false;
+                    // Commit the changes and dispose of the transaction
+                    tr.Commit();
+
+                }
+            } while (input == 1);
+        }
 
         /// <summary>
         /// Command to show the dialog box
